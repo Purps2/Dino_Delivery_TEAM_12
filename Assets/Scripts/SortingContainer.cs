@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SortingContainer : MonoBehaviour
 {
@@ -12,6 +13,13 @@ public class SortingContainer : MonoBehaviour
     private int currentLightIndex = 0;
 
     public bool isSortingFinished = false;
+    public UnityEvent finishHook;
+
+    private void Awake()
+    {
+        if (finishHook == null) finishHook = new UnityEvent();
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,6 +47,7 @@ public class SortingContainer : MonoBehaviour
                     {
                         isSortingFinished = true;
                         FindAnyObjectByType<GamestateManager>().CheckEndState();
+                        finishHook?.Invoke();
                     }
                     else
                     {

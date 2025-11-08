@@ -1,5 +1,13 @@
 using UnityEngine;
 
+public enum SortingShape
+{
+    None,
+    Square,
+    Triangle,
+    Circle
+}
+
 [RequireComponent(typeof(Rigidbody))]
 public class Grabbable : MonoBehaviour
 {
@@ -8,7 +16,7 @@ public class Grabbable : MonoBehaviour
 
     [HideInInspector]
     public Rigidbody rBody;
-
+    public SortingShape sortingShape = SortingShape.None;
     private void Start()
     {
         rBody = GetComponent<Rigidbody>();
@@ -24,4 +32,6 @@ public class Grabbable : MonoBehaviour
         rBody.useGravity = true;
         currentlyGrabbed = false;
     }
+
+
 }

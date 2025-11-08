@@ -7,6 +7,7 @@ public class GrabController : MonoBehaviour
 
     public Transform grabPoint; // Assign this in the Inspector
     public float moveToGrabPointSpeed = 2f;
+    public GameObject grabObject;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,11 +19,8 @@ public class GrabController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("Attempting to Grab Object");
-            GrabObject();
-        }
+        GrabObject();
+
 
         if (currentlyGrabbedObject != null)
         {
@@ -45,7 +43,7 @@ public class GrabController : MonoBehaviour
 
     private void GrabObject()
     {
-        float maxGrabDistance = 10f; // Set your desired max distance
+        float maxGrabDistance = 6f; // Set your desired max distance
 
         // Create a ray from the center of the screen
         Vector3 screenCenter = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
@@ -62,13 +60,18 @@ public class GrabController : MonoBehaviour
             if (grabbies != null)
             {
                 Debug.Log("Hit a grabbable and is grabbing!");
-                grabbies.GrabObject();
-                currentlyGrabbedObject = grabbies;
+                if (Input.GetMouseButton(0))
+                {
+                    grabbies.GrabObject();
+                    currentlyGrabbedObject = grabbies;
+                }
+                grabObject.SetActive(true);
             }
         }
         else
         {
             Debug.Log("No hit detected within range.");
+            grabObject.SetActive(false);
         }
     }
 

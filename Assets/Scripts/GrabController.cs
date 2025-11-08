@@ -45,19 +45,16 @@ public class GrabController : MonoBehaviour
 
     private void GrabObject()
     {
-        // Step 1: Get a point in front of the camera
-        Vector3 forwardPoint = Camera.main.transform.position + Camera.main.transform.forward * 10f;
+        float maxGrabDistance = 10f; // Set your desired max distance
 
-        // Step 2: Convert that world point to a screen point
-        Vector3 screenPoint = Camera.main.WorldToScreenPoint(forwardPoint);
-
-        // Step 3: Create a ray from the screen point
-        Ray ray = Camera.main.ScreenPointToRay(screenPoint);
-
+        // Create a ray from the center of the screen
+        Vector3 screenCenter = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
+        Ray ray = Camera.main.ScreenPointToRay(screenCenter);
 
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
+        // Limit the raycast distance
+        if (Physics.Raycast(ray, out hit, maxGrabDistance))
         {
             Debug.Log("Hit " + hit.collider.name);
             Grabbable grabbies = hit.collider.GetComponent<Grabbable>();
@@ -71,9 +68,10 @@ public class GrabController : MonoBehaviour
         }
         else
         {
-            Debug.Log("No hit detected.");
+            Debug.Log("No hit detected within range.");
         }
     }
+
 
     private void ReleaseObject()
     {

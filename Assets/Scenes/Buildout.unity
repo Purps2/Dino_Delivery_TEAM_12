@@ -17079,6 +17079,10 @@ PrefabInstance:
       propertyPath: JumpTimeout
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 5590490527688551791, guid: 5d45122ea1a623648ac7aee3e7063e9b, type: 3}
+      propertyPath: 'FootstepAudioClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: e90bf3f15565417429d3fa66d314ba93, type: 3}
     - target: {fileID: 7433877103467677871, guid: 5d45122ea1a623648ac7aee3e7063e9b, type: 3}
       propertyPath: near clip plane
       value: 0.03

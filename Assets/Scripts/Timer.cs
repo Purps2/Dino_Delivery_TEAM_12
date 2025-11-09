@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class Timer : MonoBehaviour
 {
-    public TextMeshProUGUI timerText;
+    public TMP_Text timerText;
 
     public float initialTime;
     float minutes { get => currentTime / 60; }

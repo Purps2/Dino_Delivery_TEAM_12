@@ -338,7 +338,7 @@ MonoBehaviour:
   FootstepAudioClips:
   - {fileID: 0}
   FootstepAudioVolume: 0.5
-  JumpHeight: 1.2
+  JumpHeight: 1.9
   Gravity: -15
   JumpTimeout: 0.5
   FallTimeout: 0.15
@@ -353,6 +353,7 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  _animator: {fileID: 0}
 --- !u!114 &8446337815801610622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,6 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabPoint: {fileID: 3129895211459530220}
   moveToGrabPointSpeed: 5
+  grabObject: {fileID: 0}
 --- !u!1 &5509250524714152999
 GameObject:
   m_ObjectHideFlags: 0

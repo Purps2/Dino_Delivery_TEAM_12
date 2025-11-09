@@ -15,6 +15,8 @@ public class SortingContainer : MonoBehaviour
     public bool isSortingFinished = false;
     public UnityEvent finishHook;
 
+    private GameManager manager;
+
     private void Awake()
     {
         if (finishHook == null) finishHook = new UnityEvent();
@@ -23,7 +25,7 @@ public class SortingContainer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        manager = FindFirstObjectByType<GameManager>();  
     }
 
     // Update is called once per frame
@@ -46,7 +48,7 @@ public class SortingContainer : MonoBehaviour
                     if(currentLightIndex + 1 == lights.Count)
                     {
                         isSortingFinished = true;
-                        FindAnyObjectByType<GamestateManager>().CheckEndState();
+                        manager.BoxFinished();
                         finishHook?.Invoke();
                     }
                     else

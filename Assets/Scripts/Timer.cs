@@ -10,6 +10,8 @@ public class Timer : MonoBehaviour
     float minutes { get => currentTime / 60; }
     float seconds { get => currentTime % 60; }
 
+    public GameObject endScreen;
+
     public float currentTime;
 
     public UnityEvent runOfOutTimeHook;
@@ -21,7 +23,15 @@ public class Timer : MonoBehaviour
 
     private void Start()
     {
+        endScreen.SetActive(false);
+        Time.timeScale = 1;
         currentTime = initialTime;
+    }
+
+    public void Endgame()
+    {
+        Time.timeScale = 0;
+        endScreen.SetActive(true);
     }
 
     // Update is called once per frame
@@ -31,7 +41,11 @@ public class Timer : MonoBehaviour
         timerText.text = "" + (int)minutes + ":" + (int)seconds;
 
 
-        if (currentTime < 0) runOfOutTimeHook?.Invoke();
+        if (currentTime < 0)
+        {
+            Endgame();
+        }
+
     }
 
 }

@@ -14,12 +14,14 @@ public class SortingContainer : MonoBehaviour
 
     public bool isSortingFinished = false;
     public UnityEvent finishHook;
+    public UnityEvent progressHook;
 
     private GameManager manager;
 
     private void Awake()
     {
         if (finishHook == null) finishHook = new UnityEvent();
+        if (progressHook == null) progressHook = new UnityEvent();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -54,6 +56,7 @@ public class SortingContainer : MonoBehaviour
                     else
                     {
                         currentLightIndex++;
+                        progressHook?.Invoke();
                     }
                 }
             }

@@ -28,8 +28,10 @@ namespace StarterAssets
         [Tooltip("Acceleration and deceleration")]
         public float SpeedChangeRate = 10.0f;
 
-        public AudioClip LandingAudioClip;
-        public AudioClip[] FootstepAudioClips;
+        public AudioSource JumpSoundClip;
+        public AudioSource LandingAudioClip;
+        public AudioSource FootstepAudioClips;
+      
         [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
 
         [Space(10)]
@@ -263,6 +265,7 @@ namespace StarterAssets
                     RotationSmoothTime);
 
                 _animator.SetBool("isWalking", true);
+                FootstepAudioClips.Play();
 
                 // rotate to face input direction relative to camera position
                 transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
@@ -271,6 +274,7 @@ namespace StarterAssets
             else
             {
                 _animator.SetBool("isWalking", false);
+                FootstepAudioClips.Stop(); 
             }
 
                 Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
@@ -312,6 +316,7 @@ namespace StarterAssets
                 {
                     //PUT ANIM JUMP HERRE
                     _animator.SetTrigger("isJumping");
+                    JumpSoundClip.Play(); 
 
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
@@ -382,22 +387,12 @@ namespace StarterAssets
 
         private void OnFootstep(AnimationEvent animationEvent)
         {
-            if (animationEvent.animatorClipInfo.weight > 0.5f)
-            {
-                if (FootstepAudioClips.Length > 0)
-                {
-                    var index = Random.Range(0, FootstepAudioClips.Length);
-                    AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
-                }
-            }
+      FootstepAudioClips.Play();
         }
 
         private void OnLand(AnimationEvent animationEvent)
         {
-            if (animationEvent.animatorClipInfo.weight > 0.5f)
-            {
-                AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
-            }
+          LandingAudioClip.Play();
         }
     }
 }

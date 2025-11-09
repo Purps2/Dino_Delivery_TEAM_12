@@ -32,6 +32,8 @@ public class Timer : MonoBehaviour
     {
         Time.timeScale = 0;
         endScreen.SetActive(true);
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
 
     // Update is called once per frame

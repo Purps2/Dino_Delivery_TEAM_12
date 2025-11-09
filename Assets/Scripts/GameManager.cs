@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     {
         winScreen.SetActive(false);
         finishedCount = 0;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -35,5 +37,7 @@ public class GameManager : MonoBehaviour
     {
         winScreen.SetActive(true);
         Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
 }

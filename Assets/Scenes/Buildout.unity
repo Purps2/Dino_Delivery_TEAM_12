@@ -12741,15 +12741,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53f2a206dfd28a645865b79b5c8caa6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.512
+      value: -31.89
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53f2a206dfd28a645865b79b5c8caa6c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.815
+      value: 2.82
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53f2a206dfd28a645865b79b5c8caa6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.305
+      value: -30.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53f2a206dfd28a645865b79b5c8caa6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -24018,7 +24018,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 3e2aff6bc63dc8f48873fde7806a76f9, type: 3}
+  m_Resource: {fileID: 8300000, guid: d3510e59c25db75438c413c25d51bef3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -30450,13 +30450,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057302813}
   serializedVersion: 2
-  m_LocalRotation: {x: 4.8232356e-15, y: -0.67881006, z: 5.2176145e-15, w: 0.73431396}
-  m_LocalPosition: {x: -30.42, y: 0.716, z: -28.44}
+  m_LocalRotation: {x: 5.071374e-15, y: -0.7137324, z: 4.976773e-15, w: 0.70041853}
+  m_LocalPosition: {x: -31.07, y: 0.716, z: -28.84}
   m_LocalScale: {x: 118.270004, y: 118.27004, z: 118.27004}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -85.501, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -91.079, z: 0}
 --- !u!1 &2073448678
 GameObject:
   m_ObjectHideFlags: 0
@@ -31811,11 +31811,11 @@ PrefabInstance:
     - target: {fileID: 5590490527688551791, guid: 5d45122ea1a623648ac7aee3e7063e9b, type: 3}
       propertyPath: JumpSoundClip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1591809830}
     - target: {fileID: 5590490527688551791, guid: 5d45122ea1a623648ac7aee3e7063e9b, type: 3}
       propertyPath: LandingAudioClip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1591809830}
     - target: {fileID: 5590490527688551791, guid: 5d45122ea1a623648ac7aee3e7063e9b, type: 3}
       propertyPath: FootstepAudioClip
       value: 

@@ -31811,11 +31811,11 @@ PrefabInstance:
     - target: {fileID: 5590490527688551791, guid: 5d45122ea1a623648ac7aee3e7063e9b, type: 3}
       propertyPath: JumpSoundClip
       value: 
-      objectReference: {fileID: 1591809830}
+      objectReference: {fileID: 0}
     - target: {fileID: 5590490527688551791, guid: 5d45122ea1a623648ac7aee3e7063e9b, type: 3}
       propertyPath: LandingAudioClip
       value: 
-      objectReference: {fileID: 1591809830}
+      objectReference: {fileID: 0}
     - target: {fileID: 5590490527688551791, guid: 5d45122ea1a623648ac7aee3e7063e9b, type: 3}
       propertyPath: FootstepAudioClip
       value: 

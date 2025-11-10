@@ -30,7 +30,7 @@ namespace StarterAssets
 
         public AudioSource JumpSoundClip;
         public AudioSource LandingAudioClip;
-        public AudioSource FootstepAudioClips;
+        public AudioSource FootstepAudioClip;
       
         [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
 
@@ -265,7 +265,7 @@ namespace StarterAssets
                     RotationSmoothTime);
 
                 _animator.SetBool("isWalking", true);
-                FootstepAudioClips.Play();
+                //FootstepAudioClip.Play();
 
                 // rotate to face input direction relative to camera position
                 transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
@@ -274,8 +274,11 @@ namespace StarterAssets
             else
             {
                 _animator.SetBool("isWalking", false);
-                FootstepAudioClips.Stop(); 
+              
+                FootstepAudioClip.Play();
             }
+
+
 
                 Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
@@ -385,14 +388,5 @@ namespace StarterAssets
                 GroundedRadius);
         }
 
-        private void OnFootstep(AnimationEvent animationEvent)
-        {
-      FootstepAudioClips.Play();
-        }
-
-        private void OnLand(AnimationEvent animationEvent)
-        {
-          LandingAudioClip.Play();
-        }
     }
 }
